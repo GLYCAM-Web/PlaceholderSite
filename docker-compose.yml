@@ -17,7 +17,7 @@ services:
                           - "traefik.enable=true" 
                           - "traefik.docker.network=traefik_proxy_net"
                           - "traefik.http.routers.${SiteName}_router.rule=Host(`${SiteName}`)"
-                          - "traefik.http.services.${SiteName_service.loadbalancer.server.port=80"
+                          - "traefik.http.services.${SiteName}_service.loadbalancer.server.port=80"
                           - "traefik.port=80"
                           - "traefik.site.port=80"
                           - "traefik.http.routers.${SiteName}_webserver.entrypoints=web"

@@ -28,4 +28,4 @@ COMMAND="docker stack deploy \
 	${SiteName}"
 
 echo ${COMMAND}
-
+eval ${COMMAND}
