@@ -12,11 +12,11 @@ if [ ! -d htdocs ] ; then
 fi
 
 ##
-## The variable "SiteName" should be provided by the calling script (start.bash)
+## The variable "DOMAIN" should be provided by the calling script (start.bash)
 ##
 htmlToDeploy="""
-<h1>Hello from ${SiteName}!</h1>
-The development site that normally lives at ${SiteName} is unavailable right now.
+<h1>Hello from ${DOMAIN}!</h1>
+The development site that normally lives at ${DOMAIN} is on bardo right now.
 It should be reincarnated soon. 
 """
 

@@ -19,7 +19,8 @@ if [ "${1}zzz" == "zzz" ] ; then
 	exit 1
 fi
 
-export SiteName=${1}
+export DOMAIN=${1}
+export SiteName=${DOMAIN//./$'-'}
 
 . make_html.bash
 
