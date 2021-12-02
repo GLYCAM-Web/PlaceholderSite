@@ -33,12 +33,12 @@ i=${LowPort}
 goodPort="None"
 while [ "${i}" -le "${HighPort}" ] ; 
 do
-        if [[ "${thePorts}" != *"5808${i}"* ]] ; then
+        if [[ "${usedPorts}" != *"${i}"* ]] ; then
                 export goodPort="${i}"
                 echo "Found a good port : ${goodPort}:"
                 break
         else
-                echo "port 5808${i} is in use"
+                echo "port ${i} is in use"
         fi
 	i=$((i+1))
 done
