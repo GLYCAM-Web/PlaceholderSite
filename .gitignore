@@ -1,3 +1,5 @@
-htdocs
+htdocs/index.html
 *.swp
 *~
+LocalSettings.bash
+SITE_SETTINGS.bash

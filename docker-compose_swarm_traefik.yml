@@ -1,0 +1,28 @@
+version: "3.7"
+
+services:
+        nginx:
+                networks:
+                        - traefik
+                          #                ports: - target: 80 published: ${goodPort} protocol: tcp mode: ingress
+                deploy:
+                        labels: 
+                          - "traefik.enable=true" 
+                          - "traefik.docker.network=traefik_proxy_net"
+                          - "traefik.http.routers.${SiteName}_router.rule=Host(`${DOMAIN}`)"
+                          - "traefik.http.services.${SiteName}_service.loadbalancer.server.port=80"
+                          - "traefik.port=80"
+                          - "traefik.site.port=80"
+                          - "traefik.http.routers.${SiteName}_webserver.entrypoints=web"
+                          - "traefik.http.routers.${SiteName}_webserver.middlewares=redirect"
+                          - "traefik.http.middlewares.redirect.redirectscheme.scheme=https"
+                          - "traefik.http.routers.${SiteName}_webserver2.tls=true"
+                          - "traefik.http.routers.${SiteName}_webserver2.rule=Host(`${DOMAIN}`)"
+                          - "traefik.http.routers.${SiteName}_webserver2.entrypoints=websecure"
+                          - "traefik.http.routers.${SiteName}_webserver2.tls.certresolver=le"
+
+networks:
+        traefik:
+                name: traefik_proxy_net
+                external: true
+
